@@ -15,16 +15,20 @@ val testDependencies = Seq(
   "org.scalatest" %% "scalatest" % "2.2.5"
 )
 
-val akkaV = "2.4.1"
-val akkaStreamV = "1.0"
-val equationsV = "0.1.1"
+val akkaVersion = "2.4.1"
+val akkaStreamVersion = "1.0"
+val equationsVersion = "0.1.1"
 
 val baseSettings = Seq(
   libraryDependencies ++= Seq(
-    "com.typesafe.akka" %% "akka-cluster" % akkaV,
-    "com.typesafe.akka" %% "akka-testkit" % akkaV,
-    "com.typesafe.akka" %% "akka-stream-experimental" % akkaStreamV,
-    "com.kasonchan" %% "equations" % equationsV
+    "com.typesafe.akka" %% "akka-actor" % akkaVersion,
+    "com.typesafe.akka" %% "akka-remote" % akkaVersion,
+    "com.typesafe.akka" %% "akka-cluster" % akkaVersion,
+    "com.typesafe.akka" %% "akka-cluster-metrics" % akkaVersion,
+    "com.typesafe.akka" %% "akka-cluster-tools" % akkaVersion,
+    "com.typesafe.akka" %% "akka-multi-node-testkit" % akkaVersion,
+    "com.typesafe.akka" %% "akka-stream-experimental" % akkaStreamVersion,
+    "com.kasonchan" %% "equations" % equationsVersion
   ) ++ testDependencies.map(_ % "test"),
   scalacOptions in(Compile, console) := compilerOptions
 )
