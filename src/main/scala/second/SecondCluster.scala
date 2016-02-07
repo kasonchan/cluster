@@ -6,8 +6,8 @@ import com.typesafe.config.ConfigFactory
 import scala.annotation.tailrec
 
 /**
- * Created by kasonchan on 12/12/15.
- */
+  * Created by kasonchan on 12/12/15.
+  */
 object SecondCluster {
 
   def main(args: Array[String]): Unit = {
@@ -64,6 +64,7 @@ object SecondCluster {
         "Exit"
       case s: String =>
         nodes(1) ! Msg(s)
+        nodes foreach (x => x ! Msg(s))
         read(nodes)
       case _ =>
     }
